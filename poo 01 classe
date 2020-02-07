@@ -1,0 +1,19 @@
+<?php
+
+    class tipoPessoa{   // criando um novo tipo de objeto
+
+        public $nome;   // atributo
+        
+        public function  falar(){   // metodo
+
+            return " o meu nome é". $this-> nome;
+        }
+        
+    }
+
+
+    $user = new tipoPessoa();
+    $user->nome =  " Eliasjan Luiz";
+    echo $user->falar();
+    
+?>
