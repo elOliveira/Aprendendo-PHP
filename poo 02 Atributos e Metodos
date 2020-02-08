@@ -1,0 +1,67 @@
+<?php
+
+    class tipoCarro{   // criando um novo tipo de objeto
+
+        private $modelo;
+        private $motor;
+        private $ano;
+        
+        // receber a variavel
+ 
+        public function getInformacaoGeral(){   // modo compacto
+
+            return array(
+                "modelo" => $this -> getModelo(),
+                "motor"  => $this -> getMotor(),
+                "ano"    => $this -> getAno()
+            );
+        }
+
+        public function getModelo(){
+            
+            return $this -> modelo;
+        }
+        
+        public function getMotor():float{
+            
+            return $this -> motor;
+        }
+
+        public function getAno():int{
+
+            return $this -> ano;
+        }
+     // mudar a variavel     
+        public function setModelo($nomeModelo){
+
+            $this -> modelo =  $nomeModelo;
+        }
+
+        public function setMotor($nomeMotor){
+
+            $this -> motor =  $nomeMotor;
+        }
+
+        public function setAno($nomeAno){
+            
+            $this -> ano = $nomeAno;
+        }
+
+    }
+
+    $carro = new tipoCarro();
+    
+    $carro -> setModelo ("GOL GTI");    
+    $carro -> setAno ("1999");    
+    $carro -> setMotor ("1.6");    
+
+
+/*
+    print_r($carro -> getModelo());
+    print_r($carro -> getAno());
+    print_r($carro -> getMotor());
+*/
+    print_r( $carro -> getInformacaoGeral());
+
+    
+?>
