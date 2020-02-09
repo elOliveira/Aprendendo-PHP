@@ -1,0 +1,30 @@
+<?php
+
+    class tipoEndereco{
+
+
+        private $logradouro;
+        private $numero;
+        private $cidade;
+
+        // assim que o objeto for criado, a funcao abaixo vai ser chamada automaticamente () metodos mágicos
+        public function __funcRealizaCadastro($nomeRua,$numCasa,$nomeCidade){ // pra nao ter que dar set direto, podemos usar os métodos magicos 
+
+            $this -> logradouro = $nomeRua;
+            $this -> numero  = $numCasa;
+            $this -> cidade =  $nomeCidade;
+
+        }
+
+        public function __destruct(){
+            var_dump("Destruir"); 
+        }
+
+    }
+
+
+    $meuEndereco =  new tipoEndereco("Rua pipipi popop"," 123","Recife");
+
+    var_dump($meuEndereco); /// ta dando NULL direto ;
+
+?>
