@@ -1,0 +1,52 @@
+<?php
+// INTERFACES ****** MTTTT IMPORTANTEEEEEEEEEEE
+
+interface Veiculo{
+
+    public function limiteAceleracao($limAceleracao);
+    public function limiteVelocidade($limVelocidade);
+    public function numMarchas($limMarchas);
+
+}    
+class tipoCarro implements Veiculo{
+}
+    $carro = new tipoCarro();
+
+    /*
+    no primeiro caso , vai dar erro,pois nao instanciamos os implementos 
+    agr vamos aplicar a maneira correta no proximo bloco 
+    */
+?>
+<?php
+///         MANEIRA CORRETAA
+
+interface VEICULO {
+
+    public function limiteAceleracao($limAce);
+    public function limiteVelocidade($liumVel);
+    public function qtdMarchas($numMarchas);
+
+}
+
+class tipoCarro implements VEICULO {
+
+    public function limiteAceleracao($varAcelerar){
+        echo " o Limite de aceleracao eh ateh ". $varAcelerar ." km/h" . "<br/>";
+    }
+
+    public function limiteVelocidade($varVelocidade){
+        echo " o Limite de Velocidade eh ateh " . $varVelocidade . " Km/h" . "<br/>";
+    }
+
+    public function qtdMarchas($varMarchas){
+        echo " o veiculo engatou a marcha " . $varMarchas ;
+    }
+
+}
+
+$ferrari =  new tipoCarro();
+$ferrari -> numMarchas(5);
+
+
+
+?>
