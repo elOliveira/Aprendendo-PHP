@@ -1,0 +1,38 @@
+<?php
+
+    class tipoPessoa{
+
+        public    $nome =  "Elias Luiz";
+        protected $idade = 20;
+        private $senha = "123456";
+
+
+        
+    }
+    
+    
+    
+    class tipoProgramador extends tipoPessoa {  // agr programador eh do tipo pessoa mais alguma coisa
+        
+        public function funcVerDados(){
+    
+            echo $this -> nome . "<br/>";    // por se tratar de ser um publico , tá tudo ok 
+            echo $this -> idade . "<br/>";  // aqui vai poder acessar, já que se trata de uma heranca 
+            echo $this -> senha . "<br/>";  // aqui nao vai poder acessar os dados privados 
+            
+        }
+    
+    }
+
+
+    $elias =  new tipoProgramador();
+
+    $elias -> funcVerDados();
+
+
+
+    // se a funcao VerDados tiver na classe mae, sem problema em acessar, mas se tiver encapuslada, não poderemos acessar os dados privados, apenas os protegidos 
+
+
+
+?>
