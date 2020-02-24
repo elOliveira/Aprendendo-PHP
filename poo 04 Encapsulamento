@@ -1,0 +1,28 @@
+<?php
+//    Encapsulamento exemplo 01 php
+
+    class tipoPessoa{
+
+        public $nome = "Eliasjan Luiz";
+        protected $idade = 20;
+        private $senha = "123456";
+
+        public function funcVerDados(){     // ja que o metodo eh publico, todos os dados vao aparecer de boas
+
+            echo $this -> nome ."<br/>";
+            echo $this -> idade . "<br/>";
+            echo $this -> senha . "<br/>";
+
+        }
+
+    }
+
+    $elias  =  new tipoPessoa();
+    
+  // echo $elias->nome. "<br/>";
+   
+   $elias -> funcVerDados();
+
+    //$elias -> funcVerDados();
+
+?>
