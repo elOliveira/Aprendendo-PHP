@@ -1,30 +1,28 @@
 <?php
+//    Encapsulamento exemplo 01 php
 
-    class tipoEndereco{
+    class tipoPessoa{
 
+        public $nome = "Eliasjan Luiz"; // todo mundo csg acessar
+        protected $idade = 20;          // apenas os herdeiros ou a propria classe csg acessar Mas NUNCA O OBJETO
+        private $senha = "123456";      // apenas a CLASSE CSG ACESSAr
 
-        private $logradouro;
-        private $numero;
-        private $cidade;
+        public function funcVerDados(){     // ja que o metodo eh publico, todos os dados vao aparecer de boas
 
-        // assim que o objeto for criado, a funcao abaixo vai ser chamada automaticamente () metodos mágicos
-        public function __funcRealizaCadastro($nomeRua,$numCasa,$nomeCidade){ // pra nao ter que dar set direto, podemos usar os métodos magicos 
+            echo $this -> nome ."<br/>";
+            echo $this -> idade . "<br/>";
+            echo $this -> senha . "<br/>";
 
-            $this -> logradouro = $nomeRua;
-            $this -> numero  = $numCasa;
-            $this -> cidade =  $nomeCidade;
-
-        }
-
-        public function __destruct(){
-            var_dump("Destruir"); 
         }
 
     }
 
+    $elias  =  new tipoPessoa();
+    
+  // echo $elias->nome. "<br/>";
+   
+   $elias -> funcVerDados();
 
-    $meuEndereco =  new tipoEndereco("Rua pipipi popop"," 123","Recife");
-
-    var_dump($meuEndereco); /// ta dando NULL direto ;
+    //$elias -> funcVerDados();
 
 ?>
