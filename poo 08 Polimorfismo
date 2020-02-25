@@ -1,0 +1,56 @@
+<?php
+
+abstract class ANIMAL {
+
+    public function falar(){
+        return "Som";
+    }
+
+    public function andar(){
+        return "Anda PAI ";
+    }
+
+}
+
+class Cachorro extends ANIMAL{
+
+    public function falar(){
+        return "Au au ";
+    }
+
+}
+
+class Gato extends ANIMAL{
+
+    public function falar(){
+        return "Miau ";
+    }
+
+}
+
+class Passaro extends ANIMAL{
+
+    public function falar(){
+        return "Cantar";
+    }
+
+    public function andar(){
+        return " Voar e " . parent::andar();        // aqui ta acessando o metodo da mae e modificando () adicionando o funcionamento 
+    }
+}
+
+
+// testando os casos 
+
+$malu = new Cachorro();
+$buiu = new Gato();
+$bird = new Passaro();
+
+echo "<br/> ********** <br/> DOG -> ";
+echo $malu -> falar();
+echo "<br/> ********** <br/> CAT -> ";
+echo $buiu -> falar();
+echo "<br/> ********** <br/> PASSARO -> ";
+echo $bird -> andar();
+
+?>
