@@ -15,3 +15,7 @@ INSERT INTO tb_usuarios ( descrLoguin , senha  ) VALUES('user1','senhaUser1');	-
 SELECT * FROM tb_usuarios;																											-- selecionando tudo da tabela 
 
 UPDATE tb_usuarios SET descrLoguin = '123456' WHERE idUsuario = 1;							-- modificando a senha do usuario que corresponder a coluna 1
+
+DELETE FROM tb_usuarios WHERE idUsuario = 1;																		-- Deletando uma linha da tabela 
+
+TRUNCATE TABLE tb_usuarios ;																										-- atualizando a tabela
