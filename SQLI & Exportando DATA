@@ -1,0 +1,20 @@
+<?php
+// Exportando os dados do banco de dados
+$conexao =  new mysqli("ip/ localhost","user","senha","nome do banco de dados");
+// criando uma var da classe sqli,que vai ser responsavel pela conexao 
+
+if( $conexao -> connect_error ){
+    echo " Irmao, deu esse erro aqui ó : " . $conexao -> connect_error;
+}
+// se nao deu nenhnum tipo de erro, vai continuar aqui de boas
+
+$consulta =  $conexao->query("SELECT * FROM tb_usuarios ORDER BY desloguin");
+$dados = array(); // vvamos utilizar no futuro no front
+
+while ( $aux =  $consulta -> fetch_assoc()){  // != EOF . vamos passar os dados para uma variavel aux
+  array_push($dados,$aux);  // copiando os dados para o array 
+}
+
+echo_json_encode($dados); // printando os dados no formato json. É melhor para exportar para usar no front dps 
+
+ ?>
