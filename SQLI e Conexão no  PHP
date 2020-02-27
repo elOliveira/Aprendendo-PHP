@@ -1,0 +1,30 @@
+<?php
+// conectando o msql com o php
+$conexao =  new mysqli("ip/ localhost","user","senha","nome do banco de dados");
+// criando uma var da classe sqli,que vai ser responsavel pela conexao 
+
+if( $conexao -> connect_error ){
+    echo " Irmao, deu esse erro aqui ó : " . $conexao -> connect_error;
+}
+// se nao deu nenhnum tipo de erro, vai continuar aqui de boas
+
+// prepare(**Comando sql**)
+$login = "user";
+$senha =  "123456";
+
+$comandoSql = $conexao -> prepare(" INSERT INTO tb_usuarios (desloguin,desenha) VALUES (?,?)");
+$comandoSql->bind_param("ss",$login,$senha); // aqui eu to informando que o tipo da var que ? ? vai receber sao strings
+
+$comandoSql->execute();
+ //  ja que a conexao ja ta feita, a gnt pode fazer tudo isso dnv
+
+ $login = "user";
+ $senha =  "123456";
+
+ $comandoSql = $conexao -> prepare(" INSERT INTO tb_usuarios (desloguin,desenha) VALUES (?,?)");
+ $comandoSql->bind_param("ss",$login,$senha); // aqui eu to informando que o tipo da var que ? ? vai receber sao strings
+ $comandoSql->execute();
+
+/// so precisamos colocar dentro de umn for 
+
+ ?>
