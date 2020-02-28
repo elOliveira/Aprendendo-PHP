@@ -2,7 +2,7 @@
 
   // Fazendo conexao com banco de dados usando o modelo padrao PDO
 //criando a var conexao 
-$conexao = new PDO(" mysql : nomeBancoDeDados; host =  localhost/IP", "nomeUser","Senha");
+$conexao = new PDO("mysql:dbname=nomeBancoDeDados;host=localhost/IP","nomeUser","Senha");
 
 if($conexao->connect_error ){ // verificando se ocorreu algum erro 
   echo " Irmao, deu esse erro aqui ó : " . $conexao -> connect_error;
