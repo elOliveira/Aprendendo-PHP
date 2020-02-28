@@ -1,0 +1,30 @@
+<?php 
+
+  // Fazendo conexao com banco de dados usando o modelo padrao PDO
+//criando a var conexao 
+$conexao = new PDO(" mysql : nomeBancoDeDados; host =  localhost/IP", "nomeUser","Senha");
+
+if($conexao->connect_error ){ // verificando se ocorreu algum erro 
+  echo " Irmao, deu esse erro aqui ó : " . $conexao -> connect_error;
+}
+
+// mandando executar no banco de dados 
+$consulta = $conexao->prepare("SELECT * FROM tb_usuarios ORDER BY desloguin");
+$consulta->execute();
+
+//Para n ter que rodar aql while semelhante ao EOF 
+$dados = $consulta -> fetchAll();
+
+// vai mostrar o array completo
+
+/********************************** NAO ENTENDI ESSA PARTE ***********************************************************/
+
+// outra maneira de mostrar, como se fosse uma matriz usando a porra do foreach q n entendo 
+
+  foreach ($dados as $row) {
+      foreach ($row as $key => $value) {
+          echo "<strong>" . $key . ":</strong>" . $value . "<br/>";
+      }
+      echo "***************************************************************************<br/>";
+  }
+ ?>
