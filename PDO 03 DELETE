@@ -1,0 +1,19 @@
+<?php 
+
+  $conexao = new PDO("msql:dbname = NomeBancodeDadosm ; host = localhost/iPServidor","nomeUser","senhaUser");
+
+  if($conexao -> connect_error){
+      echo " Bro deu erro aqui ó: ". $conexao->connect_error;
+  }
+
+
+  $consulta =  $conexao -> prepare(" DELETE FROM tb_usuarios WHERE idusuario = :ID");
+  
+  $id = 1;
+
+  $consulta -> bind_PARAM(":ID",$id);
+  $consulta -> execute();
+
+  echo " User Removido com Sucesso!!!!";
+
+ ?>
