@@ -1,0 +1,19 @@
+<?php  
+  $conexao = new PDO("mysql:dbname=nomeBancoDeDados;host=localhost","nomeUser","nomeSenha");
+
+  if($conexao -> connect_error ){
+  echo " Irmao, deu esse erro aqui ó : " . $conexao -> connect_error;  
+  }
+
+  // pra n ter que usar o ? ? , vamos usar o : como se fosse um DEFINE ( questao de seguranca, ATAQUE SQL SERVER)
+  $consulta =  $conexao -> prepare(" INSERT INTO tb_usuarios (desloguin, desenha) VALUES(:LOGIN, :SENHA)");
+  $login =  "elias";
+  $senha = "123345";
+
+  $consulta->bindParam(":LOGUIN , $login"); // TEM QUE ESTAR IGUALLL
+  $consulta->vindParam(":SENHA", $senha);// TEM QUE ESTAR IGUALL
+
+  $consulta->execute();
+
+  echo " INSERIDO OK!";
+  ?>
