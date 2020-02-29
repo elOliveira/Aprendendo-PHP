@@ -1,0 +1,20 @@
+<?php 
+
+  $conexao =  new PDO("mysql:dbname=NomeBancodeDadosm;host=localhost","nomeUser","senhaUser");
+  if ($conexao -> connect_error ) {
+      echo " Irmao deu erro aqui ó: ". $conexao->connect_error;
+  }
+
+  $consulta = $conexao -> prepare("UPDATE tb_usuarios SET desloguin= :LOGIN, desSenha = :SENHA WHERE idUsuario = :ID");
+  $login = "joazin";
+  $senha = "qwerty";
+  $id    =     2;
+
+  // usando um tipo de DEFINE  p evitar ataque HACKER
+  $consulta->bindParam(":LOGUIN",$login);
+  $consulta->bindParam(":SENHA",$senha);
+  $consulta->bindParam(":ID",$id);
+
+  $consulta->execute();
+  echo " Modificacao Realizada Com Sucesso!!";
+ ?>
