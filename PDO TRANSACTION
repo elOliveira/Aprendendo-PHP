@@ -1,0 +1,28 @@
+<?php
+  // TRANSACTIONS // eh aql lance do banco... pra comecar e cancelar tal acao 
+
+  // comecar =  beginTransaction();
+  // ctrl + z  = rollback();
+
+// lembrar que a transacao depende exlcusivamente da conexao e nao da consulta do banco de dados
+
+  $conexao = new PDO("myslq: dbname = nomeBancoDeDados ; host = localHost/IpServidor","nomeUser","senhaUser";
+
+  if($conexao -> connect_error ){
+      echo " Irmao, deu erro aqui: ". $conexao -> connect_error;
+  }
+
+  $conexao -> beginTransaction(); // inicio da transacao 
+
+  $consulta = $conexao -> prepare(" DELETE FROM tb_usuarios WHERE idAluno = :ID");
+
+  $id = 2;
+
+  $consulta -> bindParam(":ID",$id); // SEMELHANTE AO DEFINE, usamos para evitar ataques SQL SERVER 
+  $consulta -> execute();
+
+  // So podemos usar um dos 2
+  $conexao -> rollback(); // Aqui nao vai deleter por conta do rollback 
+  $conexao -> commit();   // aqui so vai confirmar msm 
+  
+ ?>
