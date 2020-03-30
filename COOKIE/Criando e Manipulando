@@ -1,0 +1,17 @@
+<?php
+
+// ex 01 = criando um cookie
+
+    $dados = array( "empresa"-> "Hcode Treinamentos");
+
+    setcookie("nome_do_cookie", $json_encode($dados), time() + 3600);
+    
+// ex 02 =  verificando se o cookie já existe
+
+    // isset eh uma pilha que armazena todos os cookies existentes da máquina
+    if( isset($_COOKIE["nome_do_cookie"])){
+
+        vardump(json_decode($_COOKIE["nome_do_cookie"]))); 
+    }
+
+?>
