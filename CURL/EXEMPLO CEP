@@ -1,0 +1,15 @@
+<?php
+
+    $cep  = "13222028427";
+    $link = "https//viacep.com.br/ws/$cep/json/"; 
+
+    $conexao =  curl_init($link); // criando a variavel para chamar a funcao 
+    
+    // chamando  a funcao 
+    curl_setopt($conexao,CURLOPT_RETURNTRANSFER,1);    // quero um retorno e 1 para bool
+    curl_setopt($conexao,CURLOP_SSL_VERIFYPEER, 0);    // verificando se é uma conexao segura 
+
+    $executa = curl_exec($conexao);
+    curl_close($canal);
+
+?>
