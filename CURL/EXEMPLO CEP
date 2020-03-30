@@ -12,4 +12,8 @@
     $executa = curl_exec($conexao);
     curl_close($canal);
 
+    // transformando de json para array 
+    $dado = json_decode($executa, true);
+    print_r($dado);
+
 ?>
