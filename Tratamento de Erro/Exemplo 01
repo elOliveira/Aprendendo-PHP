@@ -1,0 +1,21 @@
+<?php
+
+    // Tratamento de erros 
+    try {
+        
+        throw new Exception("Houve um erro",400);
+
+    } catch(Exception $error) {
+
+        echo json_encode( array(
+
+                "message"=> $error -> getMessage(),
+                "line"=> $error -> getLine(),
+                "file"=> $error -> getfile(),
+                "code"=> $error -> getCode()
+
+        ))
+    }
+
+
+?>
