@@ -1,15 +1,19 @@
-<?php
+    // criando uma imagem a partir de outra  já existente 
 
-// usando a biblioteca GD ( Geralmente usamos para emitir um certificado ou documento importante)
-    header("Content-Type: image/pnp");  // obg, tem que falar qual vai ser o tipo da img
+    $imagem =  imagecreatefrom("local/imagem1.jpg");
 
-    $image = imagecreate(256,256);  // definindo o tamanho dos px
+    $titleColor = imagecolorallocate($imagem,0,0,0); // cor preta
 
-    $black =  imagecolorallocate($image,0,0,0); // o 1 sempre eh o plano de fundo 
-    $red = imagecolorallocate($image,255,0,0);
+    $gray = imagecolorallocate($imagem,100,100,100);    
 
-    imagestring($image,5,60,120,"Aqui tem uma frase",$red); //imagem fonte x y string cor
-    imagepng($image); //formato que tem que exportar de acordo com o header
+    imagestring($image,5,450,150,"Certificado",$titleColor);
+    imagestring($image,5,440,350,"Elias Oliveira",$titleColor);
+    imagestring($image,3,440,3370,"Concluido em -> 23/12/1999",$titleColor);
+    
+    header("Content-type: varimagem/jpeg");
 
-    imagedestroy($image);// tipo um fclose
-?>
+    imagejpeg($imagem);
+  // se quiser disponibilizar a imagem para download 
+        imagejpeg($imagem,"cerificado-" . date("Y-m-d" . "jpg" , 10));
+//                    arquivo,nomeDoArq+data, firnato, e a resolucao (escala de 0 a 100)
+    imagedestroy($imagem);
